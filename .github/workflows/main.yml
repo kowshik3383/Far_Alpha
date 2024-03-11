@@ -13,7 +13,7 @@ jobs:
         uses:  actions/checkout@v4
 
       - name: Deploy to VM (using encrypted SSH key)
-        uses: kowshik3383/ssh-action@v4.3.5
+        uses: appleboy/ssh-action@latest
         with:
           host: 20.205.139.33
           username: ${{ secrets.falpha_username }}
