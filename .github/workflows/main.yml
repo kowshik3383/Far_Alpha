@@ -15,10 +15,10 @@ jobs:
       - name: Deploy to VM (using encrypted SSH key)
         uses: appleboy/ssh-action@v2
         with:
-          host: ${{ secrets.falpha.host }}
+          host: 
           username: ${{ secrets.falpha_username }}
         
-          key: ${{ secrets.ssh.key.path}}
+          key: ${{ secrets.key_path}}
           script: |
             cd backend-api
             npm install
