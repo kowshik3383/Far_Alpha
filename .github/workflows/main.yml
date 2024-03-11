@@ -13,13 +13,17 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy to VM (using encrypted SSH key)
-        uses: appleboy/ssh-action 
+        uses: appleboy/ssh-action
         with:
           host: 20.205.139.33
           username: ${{ secrets.falpha_username }}
-        
-          key: ${{ secrets.key_path}}
+          key: ${{ secrets.key_path }}
           script: |
+            # Navigate to the backend-api directory
             cd backend-api
+
+            # Install dependencies
             npm install
+
+            # Start the application
             npm start
