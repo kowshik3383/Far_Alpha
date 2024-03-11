@@ -19,14 +19,14 @@ jobs:
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.key_path }}
 
       - name: Deploy to VM (using encrypted SSH key)
         uses: appleboy/ssh-action@master
         with:
           host: 192.168.1.100
           username: ${{ secrets.falpha_username }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.key_path }}
           script: |
             # Navigate to the backend-api directory
             cd backend-api
