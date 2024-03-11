@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses:  actions/checkout@v1
+        uses:  actions/checkout@v4
 
       - name: Deploy to VM (using encrypted SSH key)
-        uses: appleboy/ssh-action
+        uses: kowshik3383/ssh-action@v4.3.5
         with:
           host: 20.205.139.33
           username: ${{ secrets.falpha_username }}
