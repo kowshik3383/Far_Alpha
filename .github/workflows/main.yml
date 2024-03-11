@@ -14,19 +14,19 @@ jobs:
         run: mkdir -p ~/.ssh
 
       - name: Adding Known Hosts
-        run: ssh-keyscan -H 20.205.139.33  >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H 192.168.1.100 >> ~/.ssh/known_hosts
 
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.key_path}}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy to VM (using encrypted SSH key)
         uses: appleboy/ssh-action@master
         with:
-          host: 20.205.139.33
+          host: 192.168.1.100
           username: ${{ secrets.falpha_username }}
-          key: ${{ secrets.key_path }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             # Navigate to the backend-api directory
             cd backend-api
