@@ -13,10 +13,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy to VM (using encrypted SSH key)
-        uses: appleboy/ssh-action@v0.0.9
-
+        uses: appleboy/ssh-action@v2
         with:
-          host: 
+          host: 20.205.139.33
           username: ${{ secrets.falpha_username }}
         
           key: ${{ secrets.key_path}}
